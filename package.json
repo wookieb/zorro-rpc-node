@@ -1,0 +1,25 @@
+{
+  "name": "ZorroRPC",
+  "version": "0.0.0",
+  "description": "ZorroRPC for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit tests/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wookieb/zorro-rpc-node.git"
+  },
+  "keywords": [
+    "rpc",
+    "zeromq"
+  ],
+  "author": "Łukasz Kużyński \"wookieb\"",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "d2bed3d0f8bf812b7bd0490a586be69dc92098d7",
+  "dependencies": {
+    "puid": "0.4.x",
+    "zmq": "2.4.x"
+  }
+}
