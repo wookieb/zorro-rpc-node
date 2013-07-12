@@ -17,9 +17,10 @@
   "author": "Łukasz Kużyński \"wookieb\"",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "d2bed3d0f8bf812b7bd0490a586be69dc92098d7",
   "dependencies": {
     "puid": "0.4.x",
-    "zmq": "2.4.x"
+    "zmq": "2.4.x",
+    "xtend": "2.0.x",
+    "seq": "0.3.5"
   }
 }
