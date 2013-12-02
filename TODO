@@ -1,2 +1,4 @@
+* Docs
 * Walidacja argumentow w konstruktorach
 * Refactoring to style guide
+* Znaleźć jebaną implementacje Object.values

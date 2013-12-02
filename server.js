@@ -1,20 +1,19 @@
+'use strict';
 var Server = require('./lib/Server'),
-  Transport = require('./lib/Transport/ZeroMQ/ServerTransport'),
-  SchemalessSerializer = require('./lib/Serializer/SchemalessSerializer'),
-  JsonDataFormat = require('./lib/Serializer/DataFormat/JsonDataFormat'),
-  MethodTypes = require('./lib/MethodTypes');
+    ZeroMQServerTransport = require('./lib/Transport/ZeroMQ/ServerTransport'),
+    SchemalessSerializer = require('./lib/Serializer/SchemalessSerializer'),
+    JsonDataFormat = require('./lib/Serializer/DataFormat/JsonDataFormat');
 
-var serializer = new SchemalessSerializer();
-serializer.defaultDataFormat = new JsonDataFormat();
+var serializer = new SchemalessSerializer(new JsonDataFormat);
+var transport = ZeroMQServerTransport.create('tcp://*:9000', serializer);
 
 var server = new Server({
-  transport: new Transport('tcp://0.0.0.0:8001'),
-  serializer: serializer
+    transport: transport
 });
 
-server.registerMethod('test', MethodTypes.BASIC, function(arg, callback) {
-  "use strict";
-  callback(null, 'hello '+arg);
+server.registerMethod('getUsers', function(callback) {
+    callback(null, [1, 2, 3]);
 });
 
 server.run();
+

@@ -18,9 +18,8 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "dependencies": {
-    "puid": "0.4.x",
+    "puid": "0.5.x",
     "zmq": "2.4.x",
-    "xtend": "2.0.x",
-    "seq": "0.3.5"
+    "seq": "0.3.*"
   }
 }

@@ -1,18 +1,10 @@
-var Client = require('./lib/Client'),
-  ZeroMQTransport = require('./lib/Transport/ZeroMQ/ClientTransport'),
-  SchemalessSerializer = require('./lib/Serializer/SchemalessSerializer'),
-  JsonDataFormat = require('./lib/Serializer/DataFormat/JsonDataFormat');
+'use strict';
+var zmq = require('zmq');
 
-var serializer = new SchemalessSerializer();
-serializer.defaultDataFormat = new JsonDataFormat();
+var socket = zmq.socket('dealer');
+socket.connect('tcp://127.0.0.1:9000');
 
-var c = new Client({
-  transport: new ZeroMQTransport({
-    server: 'tcp://0.0.0.0:8001'
-  }),
-  serializer: serializer
+socket.send(['request', '', 'getUsers']);
+socket.on('message', function() {
+    console.log('response', Array.prototype.slice.call(arguments, 0).map(function(e) { return e.toString() }));
 });
-
-c.call('test', [1], console.log);
-
-
