@@ -1,6 +1,6 @@
 {
     "name": "zorro-rpc",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "ZorroRPC for node.js",
     "main": "index.js",
     "scripts": {
@@ -15,7 +15,7 @@
         "zeromq"
     ],
     "author": "Łukasz Kużyński \"wookieb\"",
-    "license": "BSD",
+    "license": "MIT",
     "readmeFilename": "README.md",
     "dependencies": {
         "puid": "0.5.x",
