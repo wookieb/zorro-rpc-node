@@ -64,9 +64,11 @@ exports['unserialize result'] = {
 
 exports['serialize error'] = {
     'success': function(test) {
-        test.expect(1);
+        test.expect(2);
         object.serializeError(METHOD, exampleError, function(error, result) {
-            test.equal(JSON.stringify(exampleError), result);
+            var unserialized = JSON.parse(result);
+            test.equal(unserialized.message, exampleError.message);
+            test.deepEqual(unserialized.stack, exampleError.stack);
             test.done();
         });
     },
