@@ -16,3 +16,5 @@ exports.serializers = {
 exports.dataFormats = {
     JSON: require('./lib/Serializer/DataFormat/JsonDataFormat')
 };
+
+exports.autodiscover = require('./lib/autodiscover');
